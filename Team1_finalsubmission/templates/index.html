@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Essay Scoring</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            /* You can customize the gradient colors */
+            color: #000; /* Set text color to white for better visibility */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        label, textarea, input {
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Automated Essay Scoring</h1>
+
+    <!-- <form method="POST" action="/predict"> -->
+    <form method="POST" action="" id="essayForm">
+
+
+        <label for="prompt">Prompt:</label>
+        <textarea type="text" name="prompt" id="prompt" rows="4" cols="50"></textarea>
+        <br>
+        <br>
+
+        <label for="essay_text">Essay Text:</label>
+        <textarea name="essay_text" id="essay_text" rows="4" cols="50"></textarea>
+
+        <br>
+        <br>
+        <input type="submit" value="Predict">
+        <br>
+        <br>
+    </form>
+    <p id="result"></p>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+
+</html>
